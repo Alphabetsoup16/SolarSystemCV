@@ -115,7 +115,7 @@ function moveCamera() {
 
   mars.rotation.y += 0.025;
 
-  moon.rotation.y += 0.03;
+  jupiter.rotation.y += 0.01;
 
   earth.rotation.y += 0.01;
 

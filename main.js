@@ -110,7 +110,7 @@ function moveCamera() {
 document.body.onscroll = moveCamera;
 moveCamera();
 
-let r = 6;
+let r = 8;
 let theta = 0;
 let dTheta = 2 * Math.PI / 1500;
 

@@ -38,7 +38,7 @@ const spaceTexture = new THREE.TextureLoader().load('/Space.jpg');
 scene.background = spaceTexture;
 
 
-//earth
+// Earth
 const earthTexture = new THREE.TextureLoader().load('/earth.jpg')
 
 const earth = new THREE.Mesh(
@@ -83,24 +83,25 @@ jupiter.position.z = 40;
 jupiter.position.setX(-60);
 
 moon.position.z = -20;
-moon.position.setX(20);
+moon.position.x = 100;
+// moon.position.setX(20);
 
 mars.position.z = 10; 
 mars.position.setX(-25);
 
-earth.position.z = -8;
-earth.position.x = 2;
+earth.position.z = -10;
+earth.position.x = 5;
+// earth.position.z = -8;
+// earth.position.x = 2;
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
-  // mars.rotation.x += 0.05;
+
   mars.rotation.y += 0.025;
-  // mars.rotation.z += 0.05;
 
   moon.rotation.y += 0.03;
 
   earth.rotation.y += 0.01;
-  // earth.rotation.z += 0.01;
 
   camera.position.z = t * -0.008;
   camera.position.x = t * -0.0002;
@@ -110,7 +111,7 @@ function moveCamera() {
 document.body.onscroll = moveCamera;
 moveCamera();
 
-let r = 8;
+let r = 6;
 let theta = 0;
 let dTheta = 2 * Math.PI / 1500;
 
@@ -122,6 +123,7 @@ function animate(){
   moon.position.z = r * Math.sin(theta) - 10;
 
   earth.rotation.y += 0.001;
+
   // controls.update();
   renderer.render(scene, camera);
 }

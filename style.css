@@ -4,6 +4,10 @@ canvas {
   left: 0;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 :root {
   --dark-bg: rgba(15, 15, 15, 0.95);

@@ -2,9 +2,6 @@ import './style.css'
 
 import * as THREE from 'three';
 
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
-
-
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -25,11 +22,6 @@ pointLight.position.set(5, 5, 5)
 
 const ambientLight = new THREE.AmbientLight(0xffffff)
 scene.add(pointLight, ambientLight)
-
-// const lightHelper = new THREE.PointLightHelper(pointLight)
-// const gridHelper = new THREE.GridHelper(200, 50);
-// scene.add(lightHelper, gridHelper)
-// const controls = new OrbitControls(camera, renderer.domElement);
 
 function addStar(){
   const geometry = new THREE.SphereGeometry(0.1, 20, 20);
@@ -118,10 +110,18 @@ function moveCamera() {
 document.body.onscroll = moveCamera;
 moveCamera();
 
+let r = 6;
+let theta = 0;
+let dTheta = 2 * Math.PI / 1500;
+
 function animate(){
   requestAnimationFrame(animate);
   // space to animate objects
-  
+  theta += dTheta;
+  moon.position.x = r * Math.cos(theta) + 5;
+  moon.position.z = r * Math.sin(theta) - 10;
+
+  earth.rotation.y += 0.001;
   // controls.update();
   renderer.render(scene, camera);
 }

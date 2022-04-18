@@ -42,13 +42,12 @@ function addStar(){
 }
 Array(250).fill().forEach(addStar)
 
-const spaceTexture = new THREE.TextureLoader().load('./assets/Space.jpg');
+const spaceTexture = new THREE.TextureLoader().load('/Space.jpg');
 scene.background = spaceTexture;
 
 
 //earth
-
-const earthTexture = new THREE.TextureLoader().load('./assets/earth.jpg')
+const earthTexture = new THREE.TextureLoader().load('/earth.jpg')
 
 const earth = new THREE.Mesh(
   new THREE.SphereGeometry( 4, 32, 32 ),
@@ -58,8 +57,8 @@ const earth = new THREE.Mesh(
 scene.add(earth);
 
 // Mars
-const marsTexture = new THREE.TextureLoader().load('./assets/mars.jpg')
-const marsNormalTexture = new THREE.TextureLoader().load('./assets/mars_normal.jpg')
+const marsTexture = new THREE.TextureLoader().load('/mars.jpg')
+const marsNormalTexture = new THREE.TextureLoader().load('/mars_normal.jpg')
 
 const mars = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32 ),
@@ -71,7 +70,7 @@ const mars = new THREE.Mesh(
 scene.add(mars);
 
 // Moon
-const moonTexture = new THREE.TextureLoader().load('./assets/moon.jpg')
+const moonTexture = new THREE.TextureLoader().load('/moon.jpg')
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry( 1, 32, 32 ),
   new THREE.MeshBasicMaterial( {map: moonTexture} )
@@ -80,7 +79,7 @@ const moon = new THREE.Mesh(
 scene.add(moon);
 
 // Jupiter
-const jupiterTexture = new THREE.TextureLoader().load('./assets/jupiter.jpg')
+const jupiterTexture = new THREE.TextureLoader().load('/jupiter.jpg')
 const jupiter = new THREE.Mesh(
   new THREE.SphereGeometry( 10, 32, 32 ),
   new THREE.MeshBasicMaterial( {map: jupiterTexture} )

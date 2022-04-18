@@ -40,13 +40,29 @@ scene.background = spaceTexture;
 
 // Earth
 const earthTexture = new THREE.TextureLoader().load('/earth.jpg')
-
+const earthNormalTexture = new THREE.TextureLoader().load('/earth_normal.jpg')
 const earth = new THREE.Mesh(
-  new THREE.SphereGeometry( 4, 32, 32 ),
-  new THREE.MeshBasicMaterial( {map: earthTexture} )
-
+  new THREE.SphereGeometry(4, 32, 32),
+  new THREE.MeshBasicMaterial({
+    map: earthTexture, 
+    normalMap: earthNormalTexture
+  })
 );
 scene.add(earth);
+
+// Clouds
+const cloudTexture = new THREE.TextureLoader().load('/earthcloudmap.jpg')
+const cloud = new THREE.Mesh(
+  new THREE.SphereGeometry(4.1, 32, 32),
+  new THREE.MeshPhongMaterial({
+    map         : cloudTexture,
+    side        : THREE.DoubleSide,
+    opacity     : 0.2,
+    transparent : true,
+    depthWrite  : false,
+  })
+);
+earth.add(cloud);
 
 // Mars
 const marsTexture = new THREE.TextureLoader().load('/mars.jpg')
